@@ -18,11 +18,11 @@ ssh -J serveo.net pi@myalias
 
 Copy private key to raspi
 ```bash
-cat ~/.ssh/raspi_id_rsa.pub | ssh -J serveo.net pi@oho2 "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/raspi_id_rsa.pub | ssh -J serveo.net pi@myalias "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
 ```
 
 SSH into raspi using private key (passwordless)
 ```bash
-ssh -i ~/.ssh/raspi_id_rsa -J serveo.net pi@oho2
+ssh -i ~/.ssh/raspi_id_rsa -J serveo.net pi@myalias
 ```
 
