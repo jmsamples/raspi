@@ -1,6 +1,10 @@
 # raspi
 provisioning a raspi
 
+![](https://raw.github.com/motdotla/ansible-pi/master/ansible-pi.jpg)
+
+
+
 Run on the raspi
 ```bash
 ssh -R myalias:22:localhost:22 serveo.net
@@ -26,3 +30,14 @@ SSH into raspi using private key (passwordless)
 ssh -i ~/.ssh/raspi_id_rsa -J serveo.net pi@myalias
 ```
 
+
+
+Run ansible
+```
+ansible-playbook playbook.yml -i hosts
+```
+
+Retrieve facts
+```
+ansible all -m setup -i hosts > facts.json
+```

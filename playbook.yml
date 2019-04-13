@@ -1,0 +1,14 @@
+---  
+
+- name: Ansible Playbook for configuring Raspberry Pi
+
+  gather_facts: false
+
+  hosts: webservers
+  roles:
+    #- pi
+    #- geerlingguy.filebeat
+    # - facts
+    - autossh
+  remote_user: pi
+  become: yes

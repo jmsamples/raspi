@@ -1,0 +1,11 @@
+# - name: Collect only facts returned by facter
+#   setup:
+#     gather_subset:
+#       - '!all'
+#       - '!any'
+#       - facter
+
+- name: Capture output of command
+  command: lsb_release -a
+  register: login
+- debug: msg="{{ login.stdout }}"

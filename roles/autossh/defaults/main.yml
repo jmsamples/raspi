@@ -1,0 +1,18 @@
+---
+autossh_path: "/usr/bin/autossh"
+
+autossh_systemd_dir: "/etc/systemd/system"
+
+autossh_default_serveo_id: "myalias"
+
+autossh_default_dest_server: "localhost"
+
+autossh_default_serveo_host: "serveo.net"
+
+autossh_connections:
+  - id: "serveo"
+    serveo_id: "myalias"
+    local_port: "22"
+    #dest_server: ""
+    dest_port: "22"
+    #serveo_host: ""

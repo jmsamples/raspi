@@ -1,0 +1,18 @@
+[Unit]
+Description=AutoSSH service for "{{ item.id }}" to tunnel port "{{ item.local_port }}" to "{{ item.dest_port }}" on "{{ item.serveo_id }}"".
+#Wants=network-online.target
+#After=network-online.target
+
+[Service]
+Type=simple
+ExecStart={{ autossh_path }} -f -N -M 0 -q -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -R {{ item.serveo_id | default(autossh_default_serveo_id) }}:{{ item.local_port }}:{{ item.dest_server | default(autossh_default_dest_server) }}:{{ item.dest_port }} {{ item.serveo_host | default(autossh_default_serveo_host) }}
+#Restart=always
+RestartSec=5
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
